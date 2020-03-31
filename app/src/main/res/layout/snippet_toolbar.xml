@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.example.urbanapplication.view.BaseFragment.ClickHandler" />
+
+        <variable
+            name="vm"
+            type="com.example.urbanapplication.viewmodel.MyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/listToolbarClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/toolbar_background_circle"
+            android:onClick="@{view -> clickHandler.onBack()}"
+            android:padding="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/listToolbarQuery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/listToolbarQuery"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/toolbar_background_round_corner"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="5dp"
+            android:gravity="start|center"
+            android:hint="@string/type_any_word"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="30dp"
+            android:singleLine="true"
+            android:text="@={vm.name}"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/listToolbarFilter"
+            app:layout_constraintStart_toEndOf="@id/listToolbarClose"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/listToolbarSearch"
+            showView="@{vm.showClear.booleanValue()}"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="@{view -> clickHandler.clearSearch.invoke()}"
+            android:padding="20dp"
+            android:paddingStart="10dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/listToolbarQuery"
+            app:layout_constraintEnd_toEndOf="@id/listToolbarQuery"
+            app:layout_constraintTop_toTopOf="@id/listToolbarQuery"
+            app:srcCompat="@drawable/ic_close" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/listToolbarFilter"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/toolbar_background_circle"
+            android:onClick="@{view -> clickHandler.filter.invoke()}"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/listToolbarQuery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_sort" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

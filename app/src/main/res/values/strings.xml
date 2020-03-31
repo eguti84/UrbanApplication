@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">UrbanApplication</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="type_any_word">Type any word…</string>
+    <string name="search_for_definitions">Search for Definitions</string>
+    <string name="search_for_definitions_message">Type in the search field above, and hit press enter to find definitions.</string>
+    <string name="no_results_found_for_s">No results found for \"%s\"</string>
+    <string name="date">Date</string>
+    <string name="up_votes_ascending">Up Votes Ascending</string>
+    <string name="up_votes_descending">Up Votes Descending</string>
+    <string name="down_votes_ascending">Down Votes Ascending</string>
+    <string name="down_votes_descending">Down Votes Descending</string>
+</resources>
